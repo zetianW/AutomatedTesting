@@ -13,21 +13,18 @@ class AppiumSession:
         self.server_url = server_url
 
     def start_ios_session(self, platform_version=None, device_name=None, app=None, udid=None):
-        desired_caps = {}
-        desired_caps['platformName'] = 'iOS'
-        desired_caps['platformVersion'] = platform_version
-        desired_caps['deviceName'] = device_name
-        desired_caps['app'] = app
-
+        desired_caps = {'platformName': 'iOS',
+                        'platformVersion': platform_version,
+                        'deviceName': device_name,
+                        'app': app}
         if udid:
             desired_caps['udid'] = udid
         if platform_version:
-            desired_caps['platform_version'] = platform_version
+            desired_caps['platfossrm_version'] = platform_version
         if device_name:
             desired_caps['device_name'] = device_name
         elif app:
             desired_caps['app'] = app
 
         self.driver = webdriver.Remote(self.server_url, desired_caps)
-
         return self.driver
