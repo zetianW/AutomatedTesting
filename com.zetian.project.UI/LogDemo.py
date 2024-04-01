@@ -1,6 +1,6 @@
 # 开发人员：泽天
 
-# 开发时间：2023/11/14 10:52
+# 开发时间：2023/12/8 11:09
 
 # 项目定义：
 import sys
@@ -9,12 +9,13 @@ from JudgmentLogic.Sleep.SleepTimePrint import sleep
 from JudgmentElement.MobileConnection import AppiumSession
 from appium.webdriver.common.appiumby import AppiumBy
 from OperateLogic.GesturOperation import GestureOperation
+import logging
 
 
 class Demo:
     appium_session = AppiumSession(server_url='http://localhost:4723/wd/hub')
-    driver = appium_session.start_ios_session(platform_version='16.1', device_name='iPhone 12',
-                                              app='com.withyou.bok.app',
+    driver = appium_session.start_ios_session(platform_version='16.7.2', device_name='iPhone X',
+                                              app='com.huadongmeta.bok.app',
                                               udid='00008101-00050C410268001E')
     gesture_operation = GestureOperation()
 
@@ -55,24 +56,44 @@ class Demo:
     sleep(3)
 
     # 返回主页
+    print("返回到主页面")
     gesture_operation.find_element_by_xpath(driver, '//*[@name="Home"]').click()
 
     # 右上角操作
+    print("检查是否有指定元素，没有的话报错后继续执行程序")
+    # 创建一个logger对象
+    logger = logging.getLogger(__name__)
+    logger.setLevel(logging.ERROR)
+
+    # 创建一个handler，用于写入日志文件
+    fh = logging.FileHandler('/Users/edy/Desktop/log.txt')
+    fh.setLevel(logging.ERROR)
+
+    # 定义handler的输出格式
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    fh.setFormatter(formatter)
+
+    # 给logger添加handler
+    logger.addHandler(fh)
     try:
         element = driver.find_element(AppiumBy.XPATH, '//*[@name="1"]')
         print("识别到了未读标识")
     except Exception as e:
-        print("暂未识别到未读标识，需要检查链接/页面是否包含该元素")
+        logger.error('暂未识别到未读标识，需要检查链接/页面是否包含该元素')
         exc_type, exc_value, exc_traceback = sys.exc_info()
         # 打印堆栈跟踪
-        print(exc_traceback.tb_lineno)
-        print(exc_traceback.tb_next.tb_frame.f_locals)
-        print("-" * 90)
-        print(e)
+        logger.error('Line number: %s', exc_traceback.tb_lineno)
+        logger.error('Local variables: %s', exc_traceback.tb_next.tb_frame.f_locals)
+        logger.error('-' * 90)
+        logger.error(e)
 
+    print("点击进入通知列表")
     driver.find_element(AppiumBy.XPATH, '//*[@name="msg"]').click()
     # driver.flick(81, 653, 254, 114)
+    print("点击左上角返回页面")
     driver.find_element(AppiumBy.XPATH, '//*[@name="common black back"]').click()
     driver.execute_script("mobile:swipe", {"direction": "down"})
+    print("等待5秒后进程结束")
     sleep(5)
     driver.quit()
+    print("程序进程结束")
