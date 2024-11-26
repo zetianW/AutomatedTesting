@@ -1,0 +1,32 @@
+- name: glucose插入
+  request:
+    method: post
+    url: https://bok-test.huadongmedia.com/health-center/vital-callback/daily
+    headers:
+      Content-Type: application/json
+      Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIiwiZXhwIjozMjgxODI0NDkxLCJ1c2VySWQiOiItMTAxMCIsImlhdCI6MTcwNTAyNDQ5MX0.x9PAZccWt-Ky6yIMmCJi0OxDOJoWum7w2Za8kHiuJ6E
+    data:
+      glucose_records:
+        - timestamp: "2024-06-04T10:25:00"
+          timezone_offset: "null"
+          type: automatic
+          unit: mmol/L
+          value: 6.6
+        - timestamp: "2024-06-04T11:30:00"
+          timezone_offset: "null"
+          type: automatic
+          unit: mmol/L
+          value: 7.6
+      provider:
+        logo: https://storage.googleapis.com/vital-assets/freestyle.png
+        name: Freestyle Libre
+        slug: freestyle_libre
+      source:
+        logo: https://storage.googleapis.com/vital-assets/freestyle.png
+        name: Freestyle Libre
+        slug: freestyle_libre
+      source_id: 10
+      user_id: c60d64a8-dba1-4349-95be-29ae2678e0b3
+    event_type: daily.data.glucose.created
+    validate:
+        None
