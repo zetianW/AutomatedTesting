@@ -9,5 +9,5 @@ import pytest
 if __name__ == '__main__':
     pytest.main()
 #    os.system("allure generate ./reports -o ./reports/temp --clean")
-    os.system("allure generate ./reports/assets -o ./reports/temp --clean")
+ #   os.system("allure generate ./reports/assets -o ./reports/temp --clean")
 
