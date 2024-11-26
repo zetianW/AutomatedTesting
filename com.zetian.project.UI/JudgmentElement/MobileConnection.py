@@ -21,12 +21,5 @@ class AppiumSession:
                         'app': app}
         if udid:
             desired_caps['udid'] = udid
-        if platform_version:
-            desired_caps['platfossrm_version'] = platform_version
-        if device_name:
-            desired_caps['device_name'] = device_name
-        elif app:
-            desired_caps['app'] = app
-
         self.driver = webdriver.Remote(self.server_url, desired_caps)
         return self.driver

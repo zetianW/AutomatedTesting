@@ -7,22 +7,17 @@
 import pymysql
 
 # 定义连接参数
-host = 'rm-3ns77a88hm732bsftqo.mysql.rds.aliyuncs.com'
-port = 3306
-user = 'bok'
-password = 'ahsdqweasd!^5'
-database = 'bok_health'
-charset = 'utf8mb4'
 
-connection = pymysql.connect(host=host,
-                             port=port,
-                             user=user,
-                             password=password,
-                             db=database,
-                             charset=charset)
+connection = pymysql.connect(host='rm-3ns77a88hm732bsftqo.mysql.rds.aliyuncs.com',
+port = 3306,
+user = 'bok',
+password = 'ahsdqweasd!^5',
+database = 'bok_health',
+charset = 'utf8mb4'
+)
 
 cursor = connection.cursor()
-sql = "select * from user_info where id = 1"
+sql = ""
 try:
     cursor.execute(sql)
 

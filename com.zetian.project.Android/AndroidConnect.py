@@ -7,10 +7,9 @@ import os
 import time
 
 from appium import webdriver
-from appium.webdriver.common.mobileby import MobileBy
+from appium.webdriver.common.appiumby import AppiumBy
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
 
 from GestureAndroid import GestureOperation
 
@@ -18,18 +17,16 @@ from GestureAndroid import GestureOperation
 server_url = 'http://localhost:4723/wd/hub'
 
 # 设定Desired Capabilities
-desired_caps = {
+desired_caps= {
     'automationName': 'UIAutomator2',
     'platformName': 'Android',
     'deviceName': 'Galaxy S20 5G',
     'platformVersion': '13',
     'appPackage': 'com.huadongmeta.bok',
-    'appActivity': 'com.huadongmeta.bok.splash.SplashActivity',
-    'noReset': True
-}
+    'appActivity': 'com.huadongmeta.bok.splash.SplashActivity'}
 
 # 创建Appium会话
-driver = webdriver.Remote(server_url, desired_caps)
+driver = webdriver.Remote(server_url,desired_caps)
 try:
     wait = WebDriverWait(driver, 10)
     # 指定截图保存的目录
@@ -42,7 +39,8 @@ try:
 
         with open(os.path.join(save_dir, f'screenshot_{i}.png'), 'wb') as file:
             file.write(screenshot)
-    element = wait.until(EC.presence_of_element_located((MobileBy.XPATH, '//*[@resource-id="com.huadongmeta.bok:id/iv_qa"]')))
+    element = wait.until(
+        EC.presence_of_element_located((AppiumBy.XPATH, '//*[@resource-id="com.huadongmeta.bok:id/iv_qa"]')))
     print("指定元素加载完成")
 
 except Exception as e:

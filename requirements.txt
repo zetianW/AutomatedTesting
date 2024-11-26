@@ -1,7 +1,16 @@
-pytest
+pytest~=7.3.1
 pytest-html
 pytest-xdist
 pytest-ordering
 pytest-rerunfailures
 pytest-base-url
 allure-pytest
+
+requests~=2.31.0
+beautifulsoup4~=4.12.3
+Appium-Python-Client~=2.11.1
+selenium~=4.15.2
+eyes-selenium~=5.21.2
+PyMySQL~=1.1.0
+form~=0.0.1
+dnspython~=2.6.1

@@ -13,7 +13,7 @@ def mulTesting():
     for i in range(0, 20000):
         threads.append(
             # 将“打印传入的参数”方法传入新创建的线程终，参数以for循环中i为准
-            threading.Thread(target=Request.huaDong))
+            threading.Thread(target=Request.post_glucose()))
 
     for thread in threads:
         thread.start()
