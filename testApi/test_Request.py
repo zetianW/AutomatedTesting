@@ -27,7 +27,7 @@ class TestRequest:
             "data": {
                 "data": [
                     {
-                        "timestamp": "2024-04-22T13:37:00",
+                        "timestamp": "2025-01-03T12:25:00",
                         "timezone_offset": "null",
                         "type": "automatic",
                         "unit": "mmol/L",
@@ -45,7 +45,7 @@ class TestRequest:
                     "slug": "freestyle_libre"
                 },
                 "source_id": 10,
-                "user_id": "c60d64a8-dba1-4349-95be-29ae2678e0b3"
+                "user_id": "76eefc4e-b05c-11ee-ac51-26d6fed8a9ef"
             },
             "event_type": "daily.data.glucose.created"
         }

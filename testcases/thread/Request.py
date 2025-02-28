@@ -11,15 +11,15 @@ import requests
 
 def post_glucose():
     # 请求地址
-    # req_url = 'https://api.bokhealth.com/health-center/vital-callback/daily'
-    req_url = 'https://bok-test.huadongmedia.com/health-center/vital-callback/daily'
+    req_url = 'https://api.bokhealth.com/health-center/vital-callback/daily'
+    # req_url = 'https://bok-test.huadongmedia.com/health-center/vital-callback/daily'
     # headers
     headers = {
         'Content-Type': 'application/json',
         # 测试环境token
-          'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIiwiZXhwIjozMjgxODI0NDkxLCJ1c2VySWQiOiItMTAxMCIsImlhdCI6MTcwNTAyNDQ5MX0.x9PAZccWt-Ky6yIMmCJi0OxDOJoWum7w2Za8kHiuJ6E'
+         #  'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIiwiZXhwIjozMjgxODI0NDkxLCJ1c2VySWQiOiItMTAxMCIsImlhdCI6MTcwNTAyNDQ5MX0.x9PAZccWt-Ky6yIMmCJi0OxDOJoWum7w2Za8kHiuJ6E'
         # 线上token
-        # 'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIiwiZXhwIjozMjgyODYyNDY2LCJ1c2VySWQiOiItMTAxMCIsImlhdCI6MTcwNjA2MjQ2Nn0.-H4jr2pfSULrFRrfcp6yHUfKYtAgrRO0tkKxsdBt4lk'
+         'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIiwiZXhwIjozMjgyODYyNDY2LCJ1c2VySWQiOiItMTAxMCIsImlhdCI6MTcwNjA2MjQ2Nn0.-H4jr2pfSULrFRrfcp6yHUfKYtAgrRO0tkKxsdBt4lk'
     }
     # 请求体
     data = {
@@ -27,11 +27,11 @@ def post_glucose():
             "data": [
                 {
 
-                    "timestamp": "2024-09-09T13:44:10",
+                    "timestamp": "2025-01-14T14:28:10",
                     "timezone_offset": "null",
                     "type": "automatic",
                     "unit": "mmol/L",
-                    "value":4.4
+                    "value":6.4
                 }
             ],
             "provider": {
